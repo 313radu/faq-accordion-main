@@ -1,0 +1,256 @@
+:root {
+    /* Colors */
+    --clr-100: hsl(0, 0%, 100%);
+    --clr-200: hsl(275, 100%, 97%);
+    --clr-300: hsl(292, 16%, 49%);
+    --clr-400: hsl(292, 42%, 14%);
+
+    --clr-500: hsl(281, 83%, 54%);
+
+    /* Font Size */
+    --fs-100: 1rem;
+
+    /* Font Weights */
+    --fw-100: 400;
+    --fw-200: 600;
+    --fw-300: 700;
+
+    /* Font Family */
+    --ff-100: 'Work Sans', sans-serif;
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: var(--ff-100);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: var(--clr-200);
+}
+
+/* Global Setups */
+
+body::before {
+    content: '';
+    width: 100%;
+    max-width: 1440px;
+    height: 40%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('./assets/images/background-pattern-desktop.svg'), no-repeat;
+    background-size: cover;
+}
+
+.wrapper {
+    width: 540px;
+    height: auto;
+    border-radius: 1em;
+    position: absolute;
+    z-index: 10;
+    background-color: var(--clr-100);
+}
+
+.wrapper header {
+    width: 100%;
+    min-height: 130px;
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+}
+
+.wrapper header h1 {
+    font-weight: var(--fw-300);
+    font-size: 3rem;
+    margin-left: .5em;
+}
+
+.wrapper main {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper main section {
+    width: 95%;
+    min-height: 90px;
+    border-top: 1px solid var(--clr-200);
+    border-bottom: 1px solid var(--clr-200);
+    margin-inline: 2% 2%;
+}
+
+.wrapper main section .icon-box {
+    margin-inline: 1% 1%;
+}
+
+.wrapper main section .title-section .title,
+.wrapper main section .text-section .text {
+    margin-inline: 6% 0%;
+}
+
+.wrapper main section .title-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+}
+
+.wrapper main section .title-section .title {
+    font-size: var(--fs-100);
+    font-weight: bolder;
+    color: var(--clr-400);
+    cursor: pointer;
+    text-shadow: 1px .2px .8px var(--clr-300);
+}
+
+.wrapper main section .title-section .title:hover,
+.wrapper main section .title-section .title:focus {
+    color: var(--clr-500);
+    transition: 200ms ease-in-out;
+}
+
+/* Style the title  */
+.wrapper main section .title-section .active-title {
+    color: var(--clr-500);
+}
+
+.wrapper main section .title-section .icon-box {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+}
+
+.wrapper main section .title-section #close-icon {
+    visibility: hidden;
+}
+
+.wrapper main section .title-section .icon-box svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper main section .text-section {
+    width: 100%;
+    /* height: 100%; */
+    height: 0;
+    overflow-y: hidden;
+}
+
+.wrapper main section .text-section p.text {
+    font-size: calc(var(--fs-100) - .05rem);
+    color: var(--clr-300);
+    font-weight: var(--fw-100);
+}
+
+/* Class Style To Expand the Text Section */
+.wrapper main section .active-text-section {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper main section .text-section .text {
+    font-size: var(--fs-100);
+    font-weight: var(--fw-300);
+    color: var(--clr-400);
+}
+
+
+/* Mobile Section */
+
+@media all and (max-width: 700px) {
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: var(--clr-200);
+    }
+
+    body::before {
+        content: '';
+        width: 100%;
+        height: 40%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('./assets/images/background-pattern-mobile.svg'), no-repeat;
+        background-size: cover;
+    }
+
+    .wrapper {
+        width: 375px;
+        height: auto;
+        border-radius: 1em;
+        position: absolute;
+        z-index: 10;
+        background-color: var(--clr-100);
+    }
+
+    .wrapper header svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .wrapper main {
+        width: 100%;
+        height: 100%;
+    }
+
+    .wrapper main section {
+        width: 95%;
+        min-height: 90px;
+        border-top: 1px solid var(--clr-200);
+        border-bottom: 1px solid var(--clr-200);
+        margin-inline: 2% 2%;
+    }
+
+    .wrapper main section .title-section {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .wrapper main section .title-section .title {
+        font-size: var(--fs-100);
+        font-weight: bolder;
+        color: var(--clr-400);
+        cursor: pointer;
+        margin-inline: 10% 10%;
+        text-shadow: 1px .2px .8px var(--clr-300);
+    }
+
+    .wrapper main section .text-section p.text {
+        font-size: calc(var(--fs-100) - .05rem);
+        color: var(--clr-300);
+        font-weight: var(--fw-100);
+        margin-inline: 10% 0%;
+
+    }
+}
